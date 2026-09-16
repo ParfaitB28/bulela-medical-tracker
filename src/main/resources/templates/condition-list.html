@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Conditions</title>
+</head>
+<body>
+
+    <h1>Conditions</h1>
+
+    <a href="/conditions/new">Add Condition</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Patient ID</th>
+                <th>Patient Name</th>
+                <th>Condition Code</th>
+                <th>Condition</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="condition : ${conditions}">
+                <td th:text="${condition.patient.patientId}"></td>
+                <td th:text="${condition.patient.firstName + ' ' + condition.patient.lastName}"></td>
+                <td th:text="${condition.conditionCode}"></td>
+                <td th:text="${condition.conditionName}"></td>
+                <td th:text="${condition.status}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
